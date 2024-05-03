@@ -4,47 +4,47 @@ import { getAllTools } from './functions.js';
 var data_V1 = [{
     "Program": "Text",
     "Percentage": 50,
-    "Description": "Los modelos de IA como GPT utilizan datos para generar texto convincente similar al humano en diversos ámbitos, desde narrativa hasta servicio al cliente y programación.",
+    "Description": "AI models like GPT use data to generate convincing human-like text in various fields, from narrative to customer service and programming.",
     "Elements": ["PalM2", "Chirp", "AutoML", "Natural Language AI", "Speech-To-Text", "Translation AI", "Dialogflow", "Amazon Comprehend", "Amazon Kendra", "Amazon Textract", "Amazon Bedrock", "Amazon CodeWhisperer", "Azure AI Document Intelligence", "Azure Machine Learning", "Azure Cognitive Search", "Azure AI Bot Service", "Azure Databricks", "Azure OpenAI Service", "Quillbot", "Jenni", "LlamaIndex", "Octane", "Quickchat AI", "Quizgecko", "Quotify AI", "Perplexity.ai"]
 }, {
     "Program": "Image",
     "Percentage": 50,
-    "Description": "La generación de imágenes impulsada por la inteligencia artificial ha transformado lo visual al crear imágenes realistas y diversas en diversos estilos y temas utilizando el aprendizaje profundo. A pesar de las preocupaciones éticas, las imágenes generadas por IA inspiran la creatividad, agilizan el diseño y ayudan en la exploración científica, anunciando una nueva era de innovación visual.",
+    "Description": "AI-driven image generation has transformed visuals by creating realistic and diverse images in various styles and themes using deep learning. Despite ethical concerns, AI-generated images inspire creativity, streamline design, and assist in scientific exploration, heralding a new era of visual innovation.",
     "Elements": ["Imagen", "Vision AI", "Amazon Rekognition", "Google Gemini"]
 }, {
     "Program": "Data Simulation",
     "Percentage": 50,
-    "Description": "La simulación de datos impulsada por inteligencia artificial crea conjuntos de datos sintéticos que imitan con precisión escenarios del mundo real, ayudando a la investigación y el desarrollo al mismo tiempo que aborda las preocupaciones de privacidad asociadas con los datos reales.",
+    "Description": "AI-driven data simulation creates synthetic datasets that accurately mimic real-world scenarios, aiding research and development while addressing privacy concerns associated with real data.",
     "Elements": ["Amazon SageMaker", "AutoML", "Azure Databricks", "Azure Machine Learning", "Octane", "Vertex AI", "Vertex AI Workbench"]
 }, {
     "Program": "Code Generator Review",
     "Percentage": 50,
-    "Description": "Generador de código de IA: revoluciona el desarrollo de software con la creación rápida y personalizada de código utilizando el aprendizaje profundo. La interfaz fácil de usar se adapta a todos los niveles de habilidad, permitiendo un prototipado rápido. Aprende de vastos repositorios de código para soluciones eficientes, ahorrando tiempo y esfuerzo.",
+    "Description": "AI Code Generator: revolutionizes software development with the rapid and customized creation of code using deep learning. The easy-to-use interface caters to all skill levels, allowing for rapid prototyping. It learns from vast code repositories for efficient solutions, saving time and effort.",
     "Elements": ["Vertex AI", "Codey", "Vertex AI Workbench", "Amazon SageMaker"]
 }, {
     "Program": "Music & Sound",
     "Percentage": 50,
-    "Description": "La inteligencia artificial está remodelando la creación musical y sonora, permitiendo a los artistas diseñar nuevas melodías y ritmos mediante el análisis de datos musicales. Esto despierta la creatividad y ofrece experiencias de audio inmersivas para diversas aplicaciones como los videojuegos y el cine.",
+    "Description": "Artificial intelligence is reshaping musical and sound creation, allowing artists to design new melodies and rhythms by analyzing musical data. This sparks creativity and offers immersive audio experiences for various applications such as video games and cinema.",
     "Elements": ["Text-To-Speech", "Amazon Lex", "Krisp"]
 }, {
     "Program": "Video",
     "Percentage": 50,
-    "Description": "La generación de videos impulsada por la inteligencia artificial transforma la narración de historias con aprendizaje profundo, creando secuencias dinámicas de manera eficiente y cautivando al público de manera efectiva.",
+    "Description": "AI-driven video generation transforms storytelling with deep learning, creating dynamic sequences efficiently and captivating the audience effectively.",
     "Elements": ["Video AI", "Amazon Polly", "Synesthesia"]
 }, {
     "Program": "Game & VR",
     "Percentage": 50,
-    "Description": "La inteligencia artificial en los juegos y la realidad virtual crean experiencias inmersivas mediante algoritmos avanzados, entornos realistas y jugabilidad adaptativa.",
+    "Description": "Artificial intelligence in games and virtual reality create immersive experiences through advanced algorithms, realistic environments, and adaptive gameplay.",
     "Elements": ["Azure Kinect DK"]
 }, {
     "Program": "Vector Database",
     "Percentage": 50,
-    "Description": "Las bases de datos vectoriales impulsadas por inteligencia artificial transforman el almacenamiento y acceso de datos, siendo esenciales en áreas como el reconocimiento de imágenes y el procesamiento del lenguaje, agilizando el análisis y la extracción de información valiosa.",
+    "Description": "AI-driven vector databases transform data storage and access, being essential in areas such as image recognition and language processing, streamlining analysis and extraction of valuable information.",
     "Elements": ["Chirp", "Imagen", "LlamaIndex", "PalM2", "Perplexity.ai", "Quotify AI", "Synesthesia"]
 }, {
     "Program": "Text, Image & More",
     "Percentage": 50,
-    "Description": "Las plataformas de inteligencia artificial revolucionan la creación de contenido al integrar texto, imágenes, video y más. Automatizan tareas, optimizan flujos de trabajo y fomentan la innovación en diversas industrias, ofreciendo herramientas completas para la comunicación y la toma de decisiones.",
+    "Description": "Artificial intelligence platforms revolutionize content creation by integrating text, images, video, and more. They automate tasks, optimize workflows, and foster innovation in various industries, offering comprehensive tools for communication and decision-making.",
     "Elements": ["AI Infrastructure", "Amazon EC2 Trn1", "Amazon EC2 Inf2", "Azure AI Services"]
 }];
 
@@ -160,9 +160,9 @@ var g = svg.selectAll("path")
         $('#elementWebsite').replaceWith('<a id="elementWebsite" href="' + '#' + '">Sitio web</a>').addClass('hidden');
         }
         if(elementInfo.freeVersionOption){
-            $('#elementFree').replaceWith('<p id="elementFree">' + elementInfo.freeVersionOptionVersionOption + '</p>')
+            $('#elementFree').replaceWith('<p id="elementFree">' + 'Version Option: ' +elementInfo.freeVersionOptionVersionOption + '</p>')
         } else if (elementInfo.paidVersionOption){
-            $('#elementVersion').replaceWith('<p id="elementVersion">' + elementInfo.paidVersionOption + '</p>')
+            $('#elementVersion').replaceWith('<p id="elementVersion">' + 'Version Option: ' + elementInfo.paidVersionOption + '</p>')
         }
         $('.card').removeClass('hidden'); // Muestra el div .card
     });
