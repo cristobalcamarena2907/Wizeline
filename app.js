@@ -12,7 +12,7 @@ const pool = new Pool(config);
 app.use(express.static('public'));
 
 //WHERE "contentType" LIKE \'T%\'
-app.get('/textTools', (req, res) => {
+app.get('/tools', (req, res) => {
     pool.query('SELECT "toolName", "IdTool", "toolDescription", "referenceUrl", "freeVersionOption", "paidVersionOption" FROM tools', (err, result) => {
       if (err) {
         console.error('Error al ejecutar consulta:', err);
@@ -25,7 +25,7 @@ app.get('/textTools', (req, res) => {
 });
 
 // POST
-app.post('/textTools', (req, res) => {
+app.post('/tools', (req, res) => {
   const { toolName, toolDescription, referenceUrl, freeVersionOption, paidVersionOption } = req.body;
 
   // Aquí deberías tener la lógica para agregar la nueva herramienta a tu base de datos, usando pool.query o algún ORM si lo estás utilizando
@@ -42,7 +42,7 @@ app.post('/textTools', (req, res) => {
 });
 
 // PUT
-app.put('/textTools/:id', (req, res) => {
+app.put('/tools/:id', (req, res) => {
   const toolId = req.params.id;
   const { toolName, toolDescription, referenceUrl, freeVersionOption, paidVersionOption } = req.body;
 
@@ -60,7 +60,7 @@ app.put('/textTools/:id', (req, res) => {
 });
 
 // DELETE
-app.delete('/textTools/:id', (req, res) => {
+app.delete('/tools/:id', (req, res) => {
   const toolId = req.params.id;
 
   // Aquí deberías tener la lógica para eliminar la herramienta con el ID proporcionado de tu base de datos, usando pool.query o algún ORM si lo estás utilizando
