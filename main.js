@@ -32,7 +32,7 @@ var data_V1 = [{
     "Description": "La generación de videos impulsada por la inteligencia artificial transforma la narración de historias con aprendizaje profundo, creando secuencias dinámicas de manera eficiente y cautivando al público de manera efectiva.",
     "Elements": ["Video AI", "Amazon Polly", "Synesthesia"]
 }, {
-    "Program": "Game & Virtual Reality",
+    "Program": "Game & VR",
     "Percentage": 50,
     "Description": "La inteligencia artificial en los juegos y la realidad virtual crean experiencias inmersivas mediante algoritmos avanzados, entornos realistas y jugabilidad adaptativa.",
     "Elements": ["Azure Kinect DK"]
@@ -42,7 +42,7 @@ var data_V1 = [{
     "Description": "Las bases de datos vectoriales impulsadas por inteligencia artificial transforman el almacenamiento y acceso de datos, siendo esenciales en áreas como el reconocimiento de imágenes y el procesamiento del lenguaje, agilizando el análisis y la extracción de información valiosa.",
     "Elements": ["Chirp", "Imagen", "LlamaIndex", "PalM2", "Perplexity.ai", "Quotify AI", "Synesthesia"]
 }, {
-    "Program": "Text, Image, Video, Speech & More",
+    "Program": "Text, Image & More",
     "Percentage": 50,
     "Description": "Las plataformas de inteligencia artificial revolucionan la creación de contenido al integrar texto, imágenes, video y más. Automatizan tareas, optimizan flujos de trabajo y fomentan la innovación en diversas industrias, ofreciendo herramientas completas para la comunicación y la toma de decisiones.",
     "Elements": ["AI Infrastructure", "Amazon EC2 Trn1", "Amazon EC2 Inf2", "Azure AI Services"]
@@ -69,7 +69,7 @@ var arcOver = d3.svg.arc()
 
 var color = d3.scale.ordinal()
     .domain(type(data_V1))
-    .range(["#8A76A6", "#54B5BF", "#8EA65B", "#F27B35", "#F2C14E", "#F2B8C9", "#F2A2A2", "#F2E6E6", "#F2F2F2"]);
+    .range(["#7400b8", "#6930c3", "#5e60ce", "#5390d9", "#4ea8de", "#48bfe3", "#56cfe1", "#64dfdf", "#4cc9f0"]);
 
 
 
@@ -167,3 +167,26 @@ var g = svg.selectAll("path")
         $('.card').removeClass('hidden'); // Muestra el div .card
     });
 });
+
+svg.selectAll("text")
+    .data(pie(data_V1))
+    .enter()
+    .append("text")
+    .attr("transform", function(d) {
+        var pos = labelArc.centroid(d);
+        // Ajusta la posición del texto para que no se salga del área de la pieChart
+        var angle = Math.atan2(pos[1], pos[0]);
+        var x = pos[0] + Math.cos(angle) * 10; // Ajusta la posición horizontal
+        var y = pos[1] + Math.sin(angle) * 10; // Ajusta la posición vertical
+        return "translate(" + x + "," + y + ")";
+    })
+    .attr("dy", ".35em")
+    .text(function(d) {
+        return d.data.Program;
+    })
+    .style("text-anchor", "middle")
+    .style("fill", "white")
+    .style("visibility", function(d) {
+        // Oculta el texto si el ángulo del arco es muy pequeño (para evitar superposiciones)
+        return (d.endAngle - d.startAngle) * (180 / Math.PI) > 10 ? "visible" : "hidden";
+    });
