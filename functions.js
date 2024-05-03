@@ -1,6 +1,6 @@
 
 const getAllTools = async () => {
-    const response = await fetch('http://localhost:3000/textTools');
+    const response = await fetch('http://localhost:3000/tools');
 
     if(response.ok){
         const jsonResponse = await response.json();
